@@ -2,8 +2,6 @@ package test.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,17 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/friend/list")
-public class FriendServlet extends HttpServlet{
+@WebServlet("/send")
+public class SendServlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//출력할 친구 이름 목록
-		List<String> list=new ArrayList<String>();
-		list.add("김구라");
-		list.add("해골");
-		list.add("원숭이");
-		list.add("주뎅이");
-		list.add("덩어리");
+		/*
+		 *  <input type="text" name="msg" placeholder="서버에 할말 입력..."/>
+		 *  
+		 *  위의 input 요소에 입력한
+		 *  
+		 *  msg 라는 이름으로 전송된 문자열 추출하기 
+		 */
+		
+		String a = req.getParameter("msg");
+		System.out.println(a);
 		
 		//응답 인코딩 설정
 		resp.setCharacterEncoding("utf-8");
@@ -33,33 +34,15 @@ public class FriendServlet extends HttpServlet{
 		pw.println("<html>");
 		pw.println("<head>");
 		pw.println("<meta charset='utf-8'>");
-		pw.println("<title>친구 이름 목록 페이지</title>");
+		pw.println("<title></title>");
 		pw.println("</head>");
 		pw.println("<body>");
-		//친구 이름 목록을 for 문을 활용해서 클라이언트 웹브라우저에 출력해 보세요.
-		pw.println("<h1>친구 이름 목록 입니다</h1>");
-		pw.println("<ul>");
-		for(int i=0; i<list.size(); i++) {
-			pw.println("<li>"+list.get(i)+"</li>");
-		}
-		pw.println("</ul>");
-		
-		//확장 for 문을 활용하면
-		pw.println("<h1>친구 이름 목록 입니다</h1>");
-		pw.println("<ul>");
-		for(String tmp:list) {
-			pw.println("<li>"+tmp+"</li>");
-		}
-		pw.println("</ul>");
-		
+		pw.println("okay~");
 		pw.println("</body>");
 		pw.println("</html>");
 		pw.close();
-		
 	}
 }
-
-
 
 
 
