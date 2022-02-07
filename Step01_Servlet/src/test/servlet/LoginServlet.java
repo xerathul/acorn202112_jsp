@@ -18,6 +18,7 @@ public class LoginServlet extends HttpServlet{
 		//요청 파라미터 추출 
 		String id=req.getParameter("id");
 		String pwd=req.getParameter("pwd");
+		
 		//콘솔창에 출력
 		System.out.println(id+"/"+pwd);
 		//응답

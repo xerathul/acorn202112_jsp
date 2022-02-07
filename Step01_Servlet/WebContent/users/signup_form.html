@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>/users/signup_form.html</title>
+</head>
+<body>
+<div class="container">
+	<h1>회원 가입 폼 입니다.</h1>
+    <form action="signup.jsp">
+        <label for="email">이메일</label>
+        <input type="text" id="email" name="email"><br>
+        <fieldset>
+            <legend>성별 정보 선택</legend>
+            <label>
+                <!-- value="선택 했을때 서버에 전송할 문자열" --->
+                <input type="radio" name="gender" value="man" checked> 남자
+            </label>
+            <label>
+                <input type="radio" name="gender" value="woman"> 여자
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>취미 정보 선택</legend>
+            <label>
+                <input type="checkbox" name="hobby" value="soccer"> 축구
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="baking"> 베이킹
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="piano"> 피아노
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="etc"> 기타
+            </label>
+        </fieldset>
+        <label for="job">직업선택</label>
+        <select name="job" id="job">
+            <option value="">선택</option>
+            <option value="programmer">프로그래머</option>
+            <option value="doctor">의사</option>
+            <option value="pianist">피아니스트</option>
+            <option value="etc">기타</option>
+        </select>
+        <br>
+        <label for="lunch">점심 선택</label>
+        <!-- option 에 value 가 없으면 innerText 가 전송된다. -->
+        <select name="lunch" id="lunch">
+            <optgroup label="분식">
+                <option>라면</option>
+                <option>쫄면</option>
+                <option>김밥</option>
+            </optgroup>
+            <optgroup label="중식">
+                <option>자장면</option>
+                <option>짬뽕</option>
+                <option>군만두</option>
+            </optgroup>
+        </select>
+        <br>
+        <label for="comment">하고 싶은말</label>
+        <br>
+        <textarea name="comment" id="comment"></textarea>
+        <br>
+        <button type="submit">가입</button>
+    </form>	
+</div>
+</body>
+</html>
