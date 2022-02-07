@@ -21,6 +21,9 @@ public class SendServlet extends HttpServlet{
 		 *  msg 라는 이름으로 전송된 문자열 추출하기 
 		 */
 		
+		//post 방식 전송했을때 한글 깨지지 않도록 
+		req.setCharacterEncoding("utf-8");
+		
 		String a = req.getParameter("msg");
 		System.out.println(a);
 		
