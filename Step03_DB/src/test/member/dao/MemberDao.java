@@ -3,6 +3,7 @@ package test.member.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import test.member.dto.MemberDto;
@@ -37,34 +38,46 @@ public class MemberDao {
 		return null;
 	}
 	public List<MemberDto> selectAll(){
+		List<MemberDto> list=new ArrayList<MemberDto>();
 		
-		Connection conn=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
 			//Connection 객체의 참조값 얻어오기 
-			conn=new DbcpBean().getConn();
+			conn = new DbcpBean().getConn();
 			//실행할 sql 문 준비
-			String sql="";
-			pstmt=conn.prepareStatement(sql);
+			String sql = "SELECT num,name,addr"
+					+ " FROM member"
+					+ " ORDER BY num ASC";
+			pstmt = conn.prepareStatement(sql);
 			//? 에 값 바인딩하기
 			
 			//query 문 수행하고 결과 받아오기 
-			rs=pstmt.executeQuery();
-			while(rs.next()) {
-				
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				MemberDto dto=new MemberDto();
+				dto.setNum(rs.getInt("num"));
+				dto.setName(rs.getString("name"));
+				dto.setAddr(rs.getString("addr"));
+				list.add(dto);
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
-				if(rs!=null)rs.close();
-				if(pstmt!=null)pstmt.close();
-				if(conn!=null)conn.close();
-			}catch(Exception e) {}
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
 		}
+
 		
-		return null;
+		return list;
 	}
 }
 
