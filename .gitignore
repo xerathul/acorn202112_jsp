@@ -84,6 +84,7 @@ local.properties
 
 # Package Files #
 *.jar
+!**/WEB-INF/lib/*.jar
 *.war
 *.nar
 *.ear
