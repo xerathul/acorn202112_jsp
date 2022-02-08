@@ -111,7 +111,7 @@ public final class fortune_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 	//여기가 어디지?
 	String fortuneToday="동쪽으로 가면 귀인을 만나요";
-
+		
       out.write("  \r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");

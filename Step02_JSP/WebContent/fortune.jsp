@@ -3,6 +3,7 @@
 <%
 	//여기가 어디지?
 	String fortuneToday="동쪽으로 가면 귀인을 만나요";
+	
 %>  
 <!DOCTYPE html>
 <html>
