@@ -9,8 +9,27 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="navbar bg-primary navbar-dark navbar-expand-sm">
+	<div class="container">
+		<a class="navbar-brand" href="${pageContext.request.contextPath }/index.jsp">Acorn</a>	
+		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#topNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="topNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="${pageContext.request.contextPath }/member/list.jsp">member</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="${pageContext.request.contextPath }/todo/list.jsp">todo</a>
+				</li>
+			</ul>	
+		</div>
+	</div>
+</div>
 <div class="container">
 	<h1>인덱스 페이지 입니다.</h1>
+	<p>컨텍스트 경로 : <strong>${pageContext.request.contextPath }</strong></p>
 	<ul>
 		<li><a href="test.jsp">DB 연결 테스트</a></li>
 		<li><a href="member/list.jsp">회원 목록보기</a></li>
@@ -19,3 +38,10 @@
 </div>
 </body>
 </html>
+
+
+
+
+
+
+

@@ -18,6 +18,24 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="navbar bg-primary navbar-dark navbar-expand-sm">
+	<div class="container">
+		<a class="navbar-brand" href="${pageContext.request.contextPath }/index.jsp">Acorn</a>	
+		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#topNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="topNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link active" href="${pageContext.request.contextPath }/member/list.jsp">member</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="${pageContext.request.contextPath }/todo/list.jsp">todo</a>
+				</li>
+			</ul>	
+		</div>
+	</div>
+</div>
 <div class="container">
 	<a href="insertform.jsp" style="font-size:2rem; color:green;">
 		<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
