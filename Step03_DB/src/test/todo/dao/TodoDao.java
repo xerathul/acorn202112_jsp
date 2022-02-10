@@ -165,7 +165,7 @@ public class TodoDao {
 		try {
 			conn = new DbcpBean().getConn();
 			//select 문 작성
-			String sql = "SELECT num, content, regdate"
+			String sql = "SELECT num, content, TO_CHAR(regdate,'MM\"월\"DD\"일\" HH24:MI') AS regdate"
 					+ " FROM todo"
 					+ " ORDER BY num ASC";
 			pstmt = conn.prepareStatement(sql);

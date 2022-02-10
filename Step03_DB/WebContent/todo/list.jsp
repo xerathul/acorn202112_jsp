@@ -23,6 +23,8 @@
 				<th>번호</th>
 				<th>내용</th>
 				<th>등록일</th>
+				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -31,6 +33,8 @@
 				<td><%=tmp.getNum() %></td>
 				<td><%=tmp.getContent() %></td>
 				<td><%=tmp.getRegdate() %></td>
+				<td><a href="updateform.jsp?num=<%=tmp.getNum() %>">수정</a></td>
+				<td><a href="delete.jsp?num=<%=tmp.getNum()%>">삭제</a></td>
 			</tr>
 		<%} %>
 		</tbody>
