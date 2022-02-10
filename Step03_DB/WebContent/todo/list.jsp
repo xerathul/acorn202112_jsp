@@ -16,24 +16,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="navbar bg-primary navbar-dark navbar-expand-sm">
-	<div class="container">
-		<a class="navbar-brand" href="${pageContext.request.contextPath }/index.jsp">Acorn</a>	
-		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#topNav">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="topNav">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="${pageContext.request.contextPath }/member/list.jsp">member</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link active" href="${pageContext.request.contextPath }/todo/list.jsp">todo</a>
-				</li>
-			</ul>	
-		</div>
-	</div>
-</div>
+<jsp:include page="/include/navbar.jsp">
+	<jsp:param value="todo" name="thisPage"/>
+</jsp:include>
 <div class="container">
 	<a href="insertform.jsp">할일 추가</a>
 	<h1>할일 목록 입니다.</h1>
@@ -60,6 +45,7 @@
 		</tbody>
 	</table>
 </div>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
 

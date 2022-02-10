@@ -9,24 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="navbar bg-primary navbar-dark navbar-expand-sm">
-	<div class="container">
-		<a class="navbar-brand" href="${pageContext.request.contextPath }/index.jsp">Acorn</a>	
-		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#topNav">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="topNav">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="${pageContext.request.contextPath }/member/list.jsp">member</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="${pageContext.request.contextPath }/todo/list.jsp">todo</a>
-				</li>
-			</ul>	
-		</div>
-	</div>
-</div>
+<jsp:include page="/include/navbar.jsp"></jsp:include>
 <div class="container">
 	<h1>인덱스 페이지 입니다.</h1>
 	<p>컨텍스트 경로 : <strong>${pageContext.request.contextPath }</strong></p>
@@ -36,6 +19,14 @@
 		<li><a href="todo/list.jsp">할일 목록보기</a></li>
 	</ul>
 </div>
+<%-- 
+	[ 다른 jsp 페이지와 공동으로 응답하기 ]
+	
+	- 컨텍스트 경로는 쓰지 않는다.  / 가 곧 WebContent 이다.
+	- 상대 경로도 가능하다 
+	- include 된 jsp 페이지와 공동으로(협동 작업으로) 응답하는 것이다.
+ --%>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
 
