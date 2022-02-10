@@ -23,13 +23,13 @@
 <body>
 	<%if(isSuccess){ %>
 		<script>
-			alert("수정되었습니다.");
+			alert(<%=num%>+"번의 회원 정보가 수정되었습니다.");
 			location.href="list.jsp";
 		</script>
 	<%}else{ %>
 		<script>
 			alert("다시 시도해주세요");
-			location.href="updateform.jsp";
+			location.href="updateform.jsp?num=<%=num%>";
 		</script>
 	<%} %>
 </body>

@@ -180,6 +180,7 @@ public class MemberDao {
 		}
 		return dto;
 	}
+	
 	public List<MemberDto> selectAll() {
 		List<MemberDto> list= new ArrayList<MemberDto>();
 		
@@ -221,4 +222,86 @@ public class MemberDao {
 		return list;
 	}
 	
+	public int getCount() {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int total=0;
+		try {
+			//Connection 객체의 참조값 얻어오기 
+			conn = new DbcpBean().getConn();
+			//실행할 sql 문 준비
+			String sql = "select count(*) total from member";
+			pstmt = conn.prepareStatement(sql);
+			//? 에 값 바인딩하기
+			
+			//query 문 수행하고 결과 받아오기 
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				total=rs.getInt("total");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return total;
+		
+	}
+	//dto에 들어있는 startRowNum 과 endRowNum 을 이용해서 목록을 리턴하는 메소드
+	public List<MemberDto> getList(MemberDto dto) {
+		List<MemberDto> list= new ArrayList<MemberDto>();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			//Connection 객체의 참조값 얻어오기 
+			conn = new DbcpBean().getConn();
+			//실행할 sql 문 준비
+			String sql = "SELECT *" + 
+					" FROM" + 
+					"   (SELECT result1.*, ROWNUM rnum" + 
+					"   FROM" + 
+					"      (SELECT num,name,addr" + 
+					"      FROM member" + 
+					"      ORDER BY num ASC) result1)" + 
+					" WHERE rnum BETWEEN ? AND ?";
+			pstmt = conn.prepareStatement(sql);
+			//? 에 값 바인딩하기
+			pstmt.setInt(1, dto.getStartRowNum());
+			pstmt.setInt(2, dto.getEndRowNum());
+			//query 문 수행하고 결과 받아오기 
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				MemberDto dto2= new MemberDto();
+				dto2.setNum(rs.getInt("num"));
+				dto2.setName(rs.getNString("name"));
+				dto2.setAddr(rs.getNString("addr"));
+				list.add(dto2);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		
+		return list;
+	}
 }
