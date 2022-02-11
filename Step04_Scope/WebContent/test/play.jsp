@@ -16,7 +16,16 @@
 	<%}else{%>
 		<p>
 			<strong><%=nick %></strong> 님 놀러 오셨네요? 신나게 놀다 가세요
+			<a href="delete.jsp">세션에 저장된 내용 삭제하기(로그아웃)</a>
 		</p>
 	<%} %>
 </body>
 </html>
+
+
+
+
+
+
+
+

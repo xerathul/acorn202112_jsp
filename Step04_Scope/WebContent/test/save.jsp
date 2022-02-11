@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
+<% 
 	request.setCharacterEncoding("utf-8");
 	String nick=request.getParameter("nick");
 	
@@ -21,3 +21,9 @@
 	<a href="../index.jsp">인덱스로 이동하기</a>
 </body>
 </html>
+
+
+
+
+
+
