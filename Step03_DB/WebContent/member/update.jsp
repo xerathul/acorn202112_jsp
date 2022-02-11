@@ -11,6 +11,7 @@
 	
 	//2. DB 에 수정 반영하고
 	MemberDto dto=new MemberDto();
+	dto.setNum(num);
 	dto.setName(name);
 	dto.setAddr(addr);
 	boolean isSuccess=MemberDao.getInstance().update(dto);
