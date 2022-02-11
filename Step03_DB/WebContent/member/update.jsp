@@ -10,7 +10,9 @@
 	String addr=request.getParameter("addr");
 	
 	//2. DB 에 수정 반영하고
-	MemberDto dto=new MemberDto(num, name, addr);
+	MemberDto dto=new MemberDto();
+	dto.setName(name);
+	dto.setAddr(addr);
 	boolean isSuccess=MemberDao.getInstance().update(dto);
 	//3. 응답 한다.
 %>    
