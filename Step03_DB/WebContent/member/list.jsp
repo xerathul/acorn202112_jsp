@@ -37,8 +37,8 @@
  	
  	int startPageNum =1+((pageNum-1)/PAGE_DISPLAY_COUNT)*PAGE_DISPLAY_COUNT;
  	int endPageNum=startPageNum+PAGE_DISPLAY_COUNT-1;
- 	int totalPageCount= dao.getCount();
- 	
+ 	int PageCount= dao.getCount();
+ 	int totalPageCount= PageCount/5+(PageCount%5);
  %>
 <!DOCTYPE html>
 <html>
@@ -60,6 +60,13 @@
 	<jsp:param value="member" name="thisPage"/>
 </jsp:include>
 	<div class="container">
+		<nav>
+	      <ol class="breadcrumb">
+	          <li class="breadcrumb-item"><a href="${pageContext.request.contextPath }/">Home</a></li>
+	          <li class="breadcrumb-item"><a href="${pageContext.request.contextPath }/member/list.jsp">회원목록</a></li>
+	         <li class="breadcrumb-item active">회원 추가</li>
+	      </ol>
+	   </nav>
 		<a href="insertform.jsp" style="font-size:2rem; color:black;">
 			<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
 			  <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
@@ -115,7 +122,7 @@
 				<a class="page-link" href="list.jsp?pageNum=<%=i%>"><%=i %></a>
 			</li>
 		<%} %>
-		<%if(endPageNum<totalPageCount/5){%>
+		<%if(endPageNum<totalPageCount){%>
 			<li class="page-item">
 		      <a class="page-link" href="list.jsp?pageNum=<%=endPageNum+5 %>" aria-label="Next">
 		        <span aria-hidden="true">&raquo;</span>
@@ -125,6 +132,7 @@
 		
 				
 		</ul>
+		<p>&gt; &lt; &laquo; &raquo; &larr; &rarr; &amp; &quot; &nbsp;</p>
 	</div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
