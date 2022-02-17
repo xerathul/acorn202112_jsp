@@ -16,6 +16,7 @@
 		f.mkdir(); //upload 폴더 만들기 
 	}
 	
+	
 	//최대 업로드 사이즈 설정
 	int sizeLimit=1024*1024*10; // 10 MByte
 	

@@ -25,7 +25,7 @@
 	int endRowNum=pageNum*PAGE_ROW_COUNT;
 	
 	//startRowNum 과 endRowNum  을 GalleryDto 객체에 담고
-	GalleryDto dto=new GalleryDto();
+	final GalleryDto dto=new GalleryDto();
 	dto.setStartRowNum(startRowNum);
 	dto.setEndRowNum(endRowNum);
 	
